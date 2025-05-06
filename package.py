@@ -1,5 +1,5 @@
 class Package:
-    MAX_WEIGHT = 20
+    MAX_MASS = 20
     MAX_DIMENSION = 150
     MAX_VOLUME = 1000000
 
@@ -7,19 +7,19 @@ class Package:
     SPECIAL = "SPECIAL"
     REJECTED = "REJECTED"
 
-    def __init__(self, length: int, width: int, height: int, weight: int):
+    def __init__(self, length: int, width: int, height: int, mass: int):
         self.dimensions = Dimensions(length, width, height)
-        self.weight = weight
+        self.mass = mass
     
     def is_heavy(self) -> bool:
-        return self.weight >= self.MAX_WEIGHT
+        return self.mass >= self.MAX_MASS
 
     def is_bulky(self) -> bool:
-        return Dimensions.get_volume() >= self.MAX_VOLUME or Dimensions.get_largest_dimension() >= self.MAX_DIMENSION
+        return self.dimensions.get_volume() >= self.MAX_VOLUME or self.dimensions.get_largest_dimension() >= self.MAX_DIMENSION
 
     def get_stack_name(self):
-        is_heavy = is_heavy()
-        is_bulky = is_bulky()
+        is_heavy = self.is_heavy()
+        is_bulky = self.is_bulky()
         
         if is_heavy and is_bulky:
             return self.REJECTED
