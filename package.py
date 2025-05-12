@@ -8,6 +8,11 @@ class Package:
     REJECTED = "REJECTED"
 
     def __init__(self, length: int, width: int, height: int, mass: int):
+        assert(length, int)
+        assert(width, int)
+        assert(height, int)
+        assert(mass, int)
+        
         self.dimensions = Dimensions(length, width, height)
         self.mass = mass
     
