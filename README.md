@@ -7,7 +7,7 @@ python -m venv venv
 2. activate venv
 
 ```bash
-python -m venv venv
+.\venv\Scripts\activate
 ```
 
 3. run code
